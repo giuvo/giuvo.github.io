@@ -7,13 +7,13 @@
   "license": "MIT",
   "starter-name": "gatsby-starter-portfolio-cara",
   "scripts": {
-    "build": "gatsby build",
+    "clean": "del -f \"../!(gatsby)*\" && rm -rf public",
+    "build": "gatsby build && npm run clean && cp -a public/* ../"
     "develop": "gatsby develop",
     "develop:cypress": "cross-env CYPRESS_SUPPORT=y yarn develop",
     "build:cypress": "cross-env CYPRESS_SUPPORT=y yarn build",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
   },
   "dependencies": {
     "@lekoarts/gatsby-theme-cara": "^1.0.2",
@@ -26,6 +26,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0"
+    "cross-env": "^5.2.0",
+    "del-cli": "^2.0.0"
   }
 }
